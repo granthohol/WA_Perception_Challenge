@@ -1,9 +1,13 @@
-# WA_Perception_Challenge
+# Wisconsin Autonomous Perception Challenge Spring 2025
+## Grant Hohol
+
+## Overview
+This program is designed to detect the boundaries of a straight path defined by orange cones in an image. The input is a .png image containing small orange cones, and the output is the same image with lines drawn to represent the estimated left and right boundaries of the path. The program uses OpenCV for image processing, NumPy for numerical operations, and Matplotlib for some image output in a Jupyer Notebook.
+
+The methodology involves several steps, including color thresholding, contour detection, clustering, and line fitting. Below is a detailed explanation of each step.
 
 ## answer.png
-<div style="text-align: center;">
-    <img src="answer.png" width="600" height="800">
-</div>
+<img src="answer.png" width="600" height="800">
 
 ## Libraries Used
 - cv2
