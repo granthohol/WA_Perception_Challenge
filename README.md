@@ -1,7 +1,7 @@
 # WA_Perception_Challenge
 
 ## answer.png
-<img src="answer.png" width = "1000" height = "800">
+<img src="answer.png" width = "600" height = "800">
 
 ## Libraries Used
 - cv2
