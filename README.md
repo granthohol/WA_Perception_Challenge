@@ -32,21 +32,21 @@ The mask contained some highlighted pixels that were not cones, so the findConto
 
 ### Step 4: Centroid Calculation
 1. Calculate and store centroids for each contour  
-- For each contour, the centroid is calculated using image moments (cv2.moments()). The centroid represents the approximate location of each cone in (x,y) coordinates. Each of these centroids are stored in a list.
+For each contour, the centroid is calculated using image moments (cv2.moments()). The centroid represents the approximate location of each cone in (x,y) coordinates. Each of these centroids are stored in a list.
 
 ### Step 5: Clustering (K-Means)
-1. K-Means Clustering
-- The centroids are clustered into two groups using K-means clustering (cv2.kmeans()). We can set 2 as our number of clusters parameter because we want two lines and know the cones are in two left and right groups.
-2. Assign Clusters
-- The cv2.kmeans() function cannot immediately tell us which group is the left cones and which is the right, so we assign the groups to "left" or "right" based on their average x-coordinates. The cluster with the smaller average is labeled the left cluster and the other as the right cluster. I then output these clusters to ensure that each left centroid has a lesser value than each right centroid, and they do. 
+1. K-Means Clustering  
+The centroids are clustered into two groups using K-means clustering (cv2.kmeans()). We can set 2 as our number of clusters parameter because we want two lines and know the cones are in two left and right groups.
+2. Assign Clusters  
+The cv2.kmeans() function cannot immediately tell us which group is the left cones and which is the right, so we assign the groups to "left" or "right" based on their average x-coordinates. The cluster with the smaller average is labeled the left cluster and the other as the right cluster. I then output these clusters to ensure that each left centroid has a lesser value than each right centroid, and they do. 
 
 ### Step 6: Line Fitting and Drawing 
-1. Fit Lines to Clusters
-- For each cluster, a line is fitted through the centroids in each cluster using linear regression (cv2.fitLine()).
-2. Calculate Line Endpoints
-- In order to draw a line over the original image, we need the endpoints of the line. So, two end points are calculated for each line based off the return value of cv2.fitLine() which gives us the slope and a point on the line. Each line spans the height of the image and starts from the bottom of the image. 
-3. Draw Lines
-- Using the endpoints for the two lines, the left and right boundary lines are drawn on the original images copy using cv2.line().
+1. Fit Lines to Clusters  
+For each cluster, a line is fitted through the centroids in each cluster using linear regression (cv2.fitLine()).
+2. Calculate Line Endpoints  
+In order to draw a line over the original image, we need the endpoints of the line. So, two end points are calculated for each line based off the return value of cv2.fitLine() which gives us the slope and a point on the line. Each line spans the height of the image and starts from the bottom of the image. 
+3. Draw Lines  
+Using the endpoints for the two lines, the left and right boundary lines are drawn on the original images copy using cv2.line().
 
 
 ## What I Tried and Why It Did Not Work
