@@ -18,7 +18,7 @@ The methodology involves several steps, including color thresholding, contour de
 ### Step 1: Image Loading and Preprocessing
 1. Load the image
 2. Convert to HSV
-- Image is converted from default BGR to HSV becasue HSV is more suitable for color-based segmentation
+    Image is converted from default BGR to HSV becasue HSV is more suitable for color-based segmentation
 
 ### Step 2: Color Thresholding
 1. Create mask
