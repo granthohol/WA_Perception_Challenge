@@ -1,7 +1,9 @@
 # WA_Perception_Challenge
 
 ## answer.png
-<img src="answer.png" width = "600" height = "800">
+<div style="text-align: center;">
+    <img src="answer.png" width="600" height="800">
+</div>
 
 ## Libraries Used
 - cv2
