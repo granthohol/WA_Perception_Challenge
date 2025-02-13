@@ -21,17 +21,17 @@ The methodology involves several steps, including color thresholding, contour de
 Image is converted from default BGR to HSV becasue HSV is more suitable for color-based segmentation
 
 ### Step 2: Color Thresholding
-1. Create mask
-- A range of HSV values is defined for the orange cones and is passed to cv2.inRange() to create a mask that highlights the orange cones. Determining the bounds proved to be a little difficult and you can read more about that in the following section.
+1. Create mask  
+A range of HSV values is defined for the orange cones and is passed to cv2.inRange() to create a mask that highlights the orange cones. Determining the bounds proved to be a little difficult and you can read more about that in the following section.
 
 ### Step 3: Contour Detection
-1. Find Contours
-- Contours are detected from the mask using cv2.findContours()
-2. Filter Contours
-- The mask contained some highlighted pixels that were not cones, so the findContours() function was picking those up and detecting them. So, I decided to filter the contours based on a minimum contour area. After a little trial and error, I landed on a minimum area of 100 which successfully filtered out the noisy contours and isolated and kept the cone contours. 
+1. Find Contours  
+Contours are detected from the mask using cv2.findContours()
+2. Filter Contours  
+The mask contained some highlighted pixels that were not cones, so the findContours() function was picking those up and detecting them. So, I decided to filter the contours based on a minimum contour area. After a little trial and error, I landed on a minimum area of 100 which successfully filtered out the noisy contours and isolated and kept the cone contours. 
 
 ### Step 4: Centroid Calculation
-1. Calculate and store centroids for each contour
+1. Calculate and store centroids for each contour  
 - For each contour, the centroid is calculated using image moments (cv2.moments()). The centroid represents the approximate location of each cone in (x,y) coordinates. Each of these centroids are stored in a list.
 
 ### Step 5: Clustering (K-Means)
